@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap JavaScript Test</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">JavaScript Test with Bootstrap</h1>
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title">Generated Combinations</h5>
+                <pre id="output"></pre>
+                <!-- Buttons -->
+                <button id="generateBtn" class="btn btn-primary mt-3">Generate Combinations</button>
+                <button id="resetBtn" class="btn btn-secondary mt-3">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="C:\ProbCalc\undying_lands.js"></script>
+    <script>
+        // Example usage:
+        
+        const arrays = [(new Die()).duelOutcomes, (new Die()).duelOutcomes,  (new Die()).duelOutcomes,  (new Die()).duelOutcomes];
+        const combinations = generateCombinations(arrays);
+        
+        const params = {playerDiceCount: 2, results: combinations};
+        
+        const results = countVictories({...params}); // add error for tying fight and paramerterizing the fight winning value
+        
+        // Display the results in the HTML
+        document.getElementById('output').textContent = results;
+    </script>
+</body>
+</html>
+
+
+<!-- I want users to be able to add attack dice, toggle fight value, toggle a banner for each side -->
