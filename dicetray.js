@@ -101,16 +101,25 @@ document.addEventListener('DOMContentLoaded', () => {
                         <input type="text" class="form-control" placeholder="Item Name">
                         <div class="input-group ml-3">
                             <div class="input-group-prepend">
-                                <button class="btn btn-secondary" type="button" onclick="changeItemCount('${itemId}', -1)">-</button>
+                                <button class="btn btn-secondary" type="button" onclick="changeItemCount('counter-${itemId}', -1)">-</button>
                             </div>
-                            <input type="text" class="form-control text-center" value="0" readonly>
+                            <input type="text" id="counter-${itemId}" class="form-control text-center" value="0">
                             <div class="input-group-append">
-                                <button class="btn btn-secondary" type="button" onclick="changeItemCount('${itemId}', 1)">+</button>
+                                <button class="btn btn-secondary" type="button" onclick="changeItemCount('counter-${itemId}', 1)">+</button>
                             </div>
                         </div>
                         <button class="btn btn-danger ml-3" type="button" onclick="removeItem('${itemId}')">Remove</button>
                     </div>
                 </div>
+
+                <div class="card-body">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="checkbox" class="btn btn-secondary">Left</button>
+                        <button type="checkbox" class="btn btn-secondary">Middle</button>
+                    </div>
+                </div>
+
+
             </div>
         `;
         orderContainer.insertAdjacentHTML('beforeend', itemHtml);
@@ -124,9 +133,11 @@ function removeItem(itemId) {
 
 function changeItemCount(itemId, change) {
     const itemElement = document.getElementById(itemId);
-    const inputElement = itemElement.querySelector('input[type="text"]:not([readonly]) + input[readonly]');
-    let currentCount = parseInt(inputElement.value, 10);
+    //const inputElement = itemElement.querySelector('input[type="text"]:not([readonly]) + input[readonly]');
+    let currentCount = parseInt(itemElement.value, 10);
     currentCount += change;
     if (currentCount < 0) currentCount = 0;
-    inputElement.value = currentCount;
+    itemElement.value = currentCount;
+    console.log(currentCount);
+    console.log("changeItemCountCalled");
 }
