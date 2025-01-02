@@ -15,7 +15,13 @@ class Die {
             let returnArray = this.baseoutcome;
             //Natural Result Rerolls
             if (this.rerollones) {
-                returnArray = [1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6]; 
+                returnArray = [1, 
+                               2, 2, 2, 2, 2, 2, 2,
+                               3, 3, 3, 3, 3, 3, 3,
+                               4, 4, 4, 4, 4, 4, 4,
+                               5, 5, 5, 5, 5, 5, 5,
+                               6, 6, 6, 6, 6, 6, 6
+                              ]; 
                 }
             
             //Plus-Minus Modifiers 
